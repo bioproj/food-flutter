@@ -76,96 +76,96 @@ class _CircularHomePageState extends State<MyHomePage>
   }
 
   /*********************************** */
-  // Widget tabBody = Container(
-  //   color: FitnessAppTheme.background,
-  // );
-  // List<TabIconData> tabIconsList = TabIconData.tabIconsList;
+  Widget tabBody = Container(
+    color: FitnessAppTheme.background,
+  );
+  List<TabIconData> tabIconsList = TabIconData.tabIconsList;
 
   @override
   void initState() {
     animationController = AnimationController(
         duration: const Duration(milliseconds: 200), vsync: this);
-    // tabBody = MyDiaryScreen(animationController: animationController);
+    tabBody = MyDiaryScreen(animationController: animationController);
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    // return Container(
-    //   color: FitnessAppTheme.background,
-    //   child: Scaffold(
-    //     backgroundColor: Colors.transparent,
-    //     // bottomNavigationBar: _getBottomBar(),
-    //     body: FutureBuilder<bool>(
-    //       future: getData(),
-    //       builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
-    //         if (!snapshot.hasData) {
-    //           return const SizedBox();
-    //         } else {
-    //           return Stack(
-    //             children: <Widget>[
-    //               tabBody,
-    //               // Tip:底部导航
-    //               bottomBar(),
-    //             ],
-    //           );
-    //         }
-    //       },
-    //     ),
-    //   ),
-    // );
-
-    return Scaffold(
-      // body: BottomBarPageTransition(
-      //   builder: (_, index) => _getBody(index),
-      //   currentIndex: _currentPage,
-      //   totalLength: totalPage,
-      //   transitionType: transitionType,
-      //   transitionDuration: duration,
-      //   transitionCurve: curve,
-      // ),
-      bottomNavigationBar: _getBottomBar(),
-      body: _getBody(),
-      // appBar: _appBar(),
+    return Container(
+      color: FitnessAppTheme.background,
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        // bottomNavigationBar: _getBottomBar(),
+        body: FutureBuilder<bool>(
+          future: getData(),
+          builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
+            if (!snapshot.hasData) {
+              return const SizedBox();
+            } else {
+              return Stack(
+                children: <Widget>[
+                  tabBody,
+                  // Tip:底部导航
+                  bottomBar(),
+                ],
+              );
+            }
+          },
+        ),
+      ),
     );
+
+    // return Scaffold(
+    //   // body: BottomBarPageTransition(
+    //   //   builder: (_, index) => _getBody(index),
+    //   //   currentIndex: _currentPage,
+    //   //   totalLength: totalPage,
+    //   //   transitionType: transitionType,
+    //   //   transitionDuration: duration,
+    //   //   transitionCurve: curve,
+    //   // ),
+    //   bottomNavigationBar: _getBottomBar(),
+    //   body: _getBody(),
+    //   // appBar: _appBar(),
+    // );
   }
 
-  // Widget bottomBar() {
-  //   return Column(
-  //     children: <Widget>[
-  //       const Expanded(
-  //         child: SizedBox(),
-  //       ),
-  //       BottomBarView(
-  //         tabIconsList: tabIconsList,
-  //         addClick: () {},
-  //         changeIndex: (int index) {
-  //           if (index == 0 || index == 2) {
-  //             animationController?.reverse().then<dynamic>((data) {
-  //               if (!mounted) {
-  //                 return;
-  //               }
-  //               setState(() {
-  //                 tabBody =
-  //                     MyDiaryScreen(animationController: animationController);
-  //               });
-  //             });
-  //           } else if (index == 1 || index == 3) {
-  //             animationController?.reverse().then<dynamic>((data) {
-  //               if (!mounted) {
-  //                 return;
-  //               }
-  //               setState(() {
-  //                 tabBody =
-  //                     TrainingScreen(animationController: animationController);
-  //               });
-  //             });
-  //           }
-  //         },
-  //       ),
-  //     ],
-  //   );
-  // }
+  Widget bottomBar() {
+    return Column(
+      children: <Widget>[
+        const Expanded(
+          child: SizedBox(),
+        ),
+        BottomBarView(
+          tabIconsList: tabIconsList,
+          addClick: () {},
+          changeIndex: (int index) {
+            if (index == 0 || index == 2) {
+              animationController?.reverse().then<dynamic>((data) {
+                if (!mounted) {
+                  return;
+                }
+                setState(() {
+                  tabBody =
+                      MyDiaryScreen(animationController: animationController);
+                });
+              });
+            } else if (index == 1 || index == 3) {
+              animationController?.reverse().then<dynamic>((data) {
+                if (!mounted) {
+                  return;
+                }
+                setState(() {
+                  tabBody =
+                      TrainingScreen(animationController: animationController);
+                });
+              });
+            }
+          },
+        ),
+      ],
+    );
+  }
 
   PreferredSizeWidget _appBar() {
     return AppBar(
@@ -198,9 +198,7 @@ class _CircularHomePageState extends State<MyHomePage>
         //   },
         // ),
         // Container(color: Colors.red),
-        MyDiaryScreen(animationController: animationController),
-        TrainingScreen(animationController: animationController),
-        // FitnessAppHomeScreen(),
+        FitnessAppHomeScreen(),
         FutureBuilder<bool>(
           future: getData(),
           builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
@@ -220,11 +218,11 @@ class _CircularHomePageState extends State<MyHomePage>
             }
           },
         ),
-
-        // TrainingScreen(animationController: animationController),
+        // DesignCourseHomeScreen(),
+        MyDiaryScreen(animationController: animationController),
+        TrainingScreen(animationController: animationController),
         // Container(color: Colors.greenAccent.shade700),
         // HotelHomeScreen(),
-        DesignCourseHomeScreen(),
         // Container(color: Colors.orange),
       ],
       onPageChanged: (index) {

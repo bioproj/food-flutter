@@ -34,8 +34,8 @@ class MyApp extends StatelessWidget {
         textTheme: AppTheme.textTheme,
         platform: TargetPlatform.iOS,
       ),
-      // home: MyHomePage(),
-      home: NavigationHomeScreen(),
+      home: MyHomePage(),
+      // home: NavigationHomeScreen(),
     );
   }
 }

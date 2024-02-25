@@ -54,6 +54,7 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
               return Stack(
                 children: <Widget>[
                   tabBody,
+                  // Tip:底部导航
                   bottomBar(),
                 ],
               );

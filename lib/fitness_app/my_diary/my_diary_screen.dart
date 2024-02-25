@@ -6,6 +6,7 @@ import 'package:flutterproj/fitness_app/fitness_app_theme.dart';
 import 'package:flutterproj/fitness_app/my_diary/meals_list_view.dart';
 import 'package:flutterproj/fitness_app/my_diary/water_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterproj/design_course/course_info_screen.dart';
 
 class MyDiaryScreen extends StatefulWidget {
   const MyDiaryScreen({Key? key, this.animationController}) : super(key: key);
@@ -56,6 +57,15 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
     super.initState();
   }
 
+  void moveTo() {
+    Navigator.push<dynamic>(
+      context,
+      MaterialPageRoute<dynamic>(
+        builder: (BuildContext context) => CourseInfoScreen(),
+      ),
+    );
+  }
+
   void addAllListData() {
     const int count = 9;
 
@@ -68,6 +78,10 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
             curve:
                 Interval((1 / count) * 0, 1.0, curve: Curves.fastOutSlowIn))),
         animationController: widget.animationController!,
+        onTap: () {
+          print(1111111111111);
+          moveTo();
+        },
       ),
     );
     listViews.add(
@@ -190,6 +204,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen>
           return ListView.builder(
             controller: scrollController,
             padding: EdgeInsets.only(
+              // Tip: 顶部边距
               top: AppBar().preferredSize.height +
                   MediaQuery.of(context).padding.top +
                   24,
