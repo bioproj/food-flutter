@@ -2,9 +2,8 @@ import 'dart:io';
 import 'package:flutterproj/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-// import 'package:flutterproj/navigation_home_screen.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
-// import 'package:flutterproj/navigation_home_screen.dart';
+import 'package:flutterproj/navigation_home_screen.dart';
 import 'package:flutterproj/home_screen.dart';
 
 void main() async {
@@ -35,7 +34,8 @@ class MyApp extends StatelessWidget {
         textTheme: AppTheme.textTheme,
         platform: TargetPlatform.iOS,
       ),
-      home: MyHomePage(),
+      // home: MyHomePage(),
+      home: NavigationHomeScreen(),
     );
   }
 }

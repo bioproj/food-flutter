@@ -1,6 +1,6 @@
 import 'package:flutterproj/app_theme.dart';
-// import 'package:flutterproj/custom_drawer/drawer_user_controller.dart';
-// import 'package:flutterproj/custom_drawer/home_drawer.dart';
+import 'package:flutterproj/custom_drawer/drawer_user_controller.dart';
+import 'package:flutterproj/custom_drawer/home_drawer.dart';
 // import 'package:flutterproj/feedback_screen.dart';
 // import 'package:flutterproj/help_screen.dart';
 import 'package:flutterproj/home_screen.dart';
@@ -14,7 +14,7 @@ class NavigationHomeScreen extends StatefulWidget {
 
 class _NavigationHomeScreenState extends State<NavigationHomeScreen> {
   Widget? screenView;
-  // DrawerIndex? drawerIndex;
+  DrawerIndex? drawerIndex;
 
   @override
   void initState() {
@@ -47,33 +47,33 @@ class _NavigationHomeScreenState extends State<NavigationHomeScreen> {
     );
   }
 
-  // void changeIndex(DrawerIndex drawerIndexdata) {
-  //   if (drawerIndex != drawerIndexdata) {
-  //     drawerIndex = drawerIndexdata;
-  //     switch (drawerIndex) {
-  //       case DrawerIndex.HOME:
-  //         setState(() {
-  //           screenView = const MyHomePage();
-  //         });
-  //         break;
-  //       case DrawerIndex.Help:
-  //         setState(() {
-  //           screenView = HelpScreen();
-  //         });
-  //         break;
-  //       case DrawerIndex.FeedBack:
-  //         setState(() {
-  //           screenView = FeedbackScreen();
-  //         });
-  //         break;
-  //       case DrawerIndex.Invite:
-  //         setState(() {
-  //           screenView = InviteFriend();
-  //         });
-  //         break;
-  //       default:
-  //         break;
-  //     }
-  //   }
-  // }
+  void changeIndex(DrawerIndex drawerIndexdata) {
+    if (drawerIndex != drawerIndexdata) {
+      drawerIndex = drawerIndexdata;
+      switch (drawerIndex) {
+        case DrawerIndex.HOME:
+          setState(() {
+            screenView = const MyHomePage();
+          });
+          break;
+        case DrawerIndex.Help:
+          setState(() {
+            screenView = MyHomePage();
+          });
+          break;
+        case DrawerIndex.FeedBack:
+          setState(() {
+            screenView = MyHomePage();
+          });
+          break;
+        case DrawerIndex.Invite:
+          setState(() {
+            screenView = MyHomePage();
+          });
+          break;
+        default:
+          break;
+      }
+    }
+  }
 }
