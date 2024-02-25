@@ -6,27 +6,28 @@ import 'package:flutterproj/app_theme.dart';
 //   runApp(MyApp());
 // }
 
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key? key}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: CircularHomePage(),
-    );
-  }
-}
+// class MyHomePage extends StatelessWidget {
+//   const MyHomePage({Key? key}) : super(key: key);
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'Flutter Demo',
+//       debugShowCheckedModeBanner: false,
+//       theme: ThemeData(
+//         visualDensity: VisualDensity.adaptivePlatformDensity,
+//       ),
+//       home: CircularHomePage(),
+//     );
+//   }
+// }
 
-class CircularHomePage extends StatefulWidget {
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({Key? key}) : super(key: key);
   @override
   _CircularHomePageState createState() => _CircularHomePageState();
 }
 
-class _CircularHomePageState extends State<CircularHomePage>
+class _CircularHomePageState extends State<MyHomePage>
     with TickerProviderStateMixin {
   List<HomeList> homeList = HomeList.homeList;
   AnimationController? animationController;
@@ -85,7 +86,7 @@ class _CircularHomePageState extends State<CircularHomePage>
       // ),
       bottomNavigationBar: _getBottomBar(),
       body: _getBody(),
-      appBar: _appBar(),
+      // appBar: _appBar(),
     );
   }
 
@@ -97,6 +98,7 @@ class _CircularHomePageState extends State<CircularHomePage>
     );
   }
 
+  //主页面
   Widget _getBody() {
     return PageView(
       controller: _pageController,
@@ -105,6 +107,7 @@ class _CircularHomePageState extends State<CircularHomePage>
         //   // color: Colors.blue,
         //   child:
         // ),
+        Container(color: Colors.red),
         FutureBuilder<bool>(
           future: getData(),
           builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
@@ -124,7 +127,7 @@ class _CircularHomePageState extends State<CircularHomePage>
             }
           },
         ),
-        Container(color: Colors.red),
+
         Container(color: Colors.greenAccent.shade700),
         Container(color: Colors.orange),
       ],
